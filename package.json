@@ -1,0 +1,19 @@
+{
+  "name": "villainbnb",
+  "version": "1.0.0",
+  "description": "Aplicativo para o gerenciamento de bases secretas ao redor do mundo. Implementado com Node Express",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon .\\src\\index.js"
+  },
+  "author": "Victor Bussiki",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.21"
+  }
+}
