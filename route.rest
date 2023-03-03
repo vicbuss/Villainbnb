@@ -1,0 +1,5 @@
+GET http://0.0.0.0:3000/villainbnb
+
+###
+
+GET http://0.0.0.0:3000/villainbnb/12
