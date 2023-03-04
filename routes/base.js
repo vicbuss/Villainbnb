@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-//Getting all
+//Listar todas - filtrar titulo - Params: titulo, nome, cidade, tecnologias 
 router.get('/', (req, res) => {
     res.send('Hello World');
 })
-//Getting one
+//Listar uma - filtrar titulo - Params: titulo, nome, cidade, tecnologias
 router.get('/:id', (req, res) => {
     res.send(req.params.id);
 })
-//Creating one
+//Cadastrar nova base
 router.post('/', (req, res) => {
 })
-//Updating one
+//Atualizar cadastro
 router.patch('/:id', (req, res) => {
 })
-//Deleting one
+//Deletar uma
 router.delete('/:id', (req, res) => {
 })
 
