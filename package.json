@@ -1,7 +1,7 @@
 {
   "name": "villainbnb",
   "version": "1.0.0",
-  "description": "Aplicativo para o gerenciamento de bases secretas ao redor do mundo. Implementado com Node Express",
+  "description": "API REST para o gerenciamento de bases secretas ao redor do mundo. Implementado com Node Express",
   "main": "index.js",
   "scripts": {
     "devStart": "nodemon .\\src\\index.js"

@@ -5,7 +5,7 @@ const Base = require('../models/base');
 //Listar todas - filtrar titulo - Params: titulo, nome, cidade, tecnologias 
 router.get('/', async (req, res) => {
     try {
-        const bases = await Base.find();
+        const bases = await Base.find({}, {titulo: 0});
         res.json(bases); 
     } catch (erro) {
         res.status(500).json({ message: erro.message });
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     let base;
     try{
-        base = await Base.findById(req.params.id);
+        base = await Base.findById(req.params.id, {titulo: 0});
         if(base == null) {
             return res.status(404).json({ message: 'Cannot find base' })
         }

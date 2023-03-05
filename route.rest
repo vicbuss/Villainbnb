@@ -1,33 +1,32 @@
 GET http://0.0.0.0:3000/base
 
 ###
-
-GET http://0.0.0.0:3000/base?titulo=%22Centro%20de%20fofoca%20universal%22
-
-###
-GET http://0.0.0.0:3000/base/640485972964893905a8d496
+GET http://0.0.0.0:3000/base/?cidade=Tóquio
 
 ###
+GET http://0.0.0.0:3000/base/6404b132c3f0f9632abd9648
+###
+
 POST http://0.0.0.0:3000/base
 Content-Type: application/json
 
 {
-    "titulo": "Centro de fofoca universal",
-    "nomeFachada": "Wikilab",
-    "cidade": "Nova York",
-    "tecnologias": ["laboratório de nanotecnologia","academia de parkour"]
+    "titulo": "Fábrica de SMILE",
+    "nomeFachada": "Coliseu Corroída",
+    "cidade": "Rio de Janeiro",
+    "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 }
 
 ###
 
-PUT http://0.0.0.0:3000/base/6404930c68fa555d4cd693db
+PUT http://0.0.0.0:3000/base/6404b132c3f0f9632abd9648
 Content-Type: application/json
 
 {
-    "titulo": "Centro de fofoca global",
-    "nomeFachada": "Wikilab",
-    "cidade": "Nova York",
-    "tecnologias": ["laboratório de nanotecnologia"]
+    "titulo": "Fábrica de SMILE",
+    "nomeFachada": "Coliseu Corrida",
+    "cidade": "Tóquio",
+    "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 }
 
 ###
