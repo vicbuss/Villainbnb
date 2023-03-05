@@ -52,37 +52,19 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-//Deletar uma
-// router.delete('/id:', async (req, res) => {
-//     try {
-//         await Base.findByIdAndDelete(req.params.id);
-//         res.json({ message: 'Base destroyed without a trace' });
-//     } catch (erro) {
-//         res.status(500).json({message: erro.message});
-//     }
-// })
-
-router.delete('/:id', getBase, async (req, res) => {
-    try {
-      await res.base.deleteOne();
-      res.json({ message: 'Deleted Base' })
-    } catch (erro) {
-      res.status(500).json({ message: erro.message })
-    }
-  })
-
-async function getBase (req, res, next) {
+// Deletar uma
+router.delete('/:id', async (req, res) => {
     let base;
     try {
         base = await Base.findById(req.params.id);
-        if (base == null) {
-            return res.status(404).json({ message: 'Cannot find base' });
+        if(base == null) {
+            return res.status(404).json({ message: 'Cannot find base' })
         }
+        await Base.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Base deleted' });
     } catch (erro) {
-        return res.status(500).json({ message: err.message });
+        res.status(500).json({message: erro.message});
     }
-    res.base = base;
-    next();
-}
+})
 
 module.exports = router;
