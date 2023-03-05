@@ -11,10 +11,21 @@ router.get('/', async (req, res) => {
         res.status(500).json({ message: erro.message });
     }
 })
-//Listar uma - filtrar titulo - Params: titulo, nome, cidade, tecnologias
-router.get('/:id', getBase, (req, res) => {
-    res.json(res.base);
+//Listar uma ID - filtrar titulo - Params: titulo, nome, cidade, tecnologias
+router.get('/:id', async (req, res) => {
+    let base;
+    try{
+        base = await Base.findById(req.params.id);
+        if(base == null) {
+            return res.status(404).json({ message: 'Cannot find base' })
+        }
+        
+    } catch (erro) {
+        return res.status(500).json({ message: erro.message });
+    }
+    return res.json(base);
 })
+
 //Cadastrar nova base
 router.post('/', async (req, res) => {
     const base = new Base({
@@ -31,28 +42,34 @@ router.post('/', async (req, res) => {
     }
 })
 //Atualizar cadastro
-router.put('/:id', getBase, async (req, res) => {
-    res.base.titulo = req.body.titulo;
-    res.base.nomeFachada = req.body.nomeFachada;
-    res.base.cidade = req.body.cidade;
-    res.base.tecnologias = req.body.tecnologias;
+router.put('/:id', async (req, res) => {
     try {
-        const baseAtualizada = await res.base.save();
-        res.json(baseAtualizada);
+        await Base.findByIdAndUpdate(req.params.id, req.body);
+        const baseAtualizada = await Base.findById(req.params.id);
+        res.json({baseAtualizada});
     } catch (erro) {
-        res.status(400).json({ message: erro.message});
+        res.status(400).json({ message: erro.message });
     }
 })
 
 //Deletar uma
+// router.delete('/id:', async (req, res) => {
+//     try {
+//         await Base.findByIdAndDelete(req.params.id);
+//         res.json({ message: 'Base destroyed without a trace' });
+//     } catch (erro) {
+//         res.status(500).json({message: erro.message});
+//     }
+// })
+
 router.delete('/:id', getBase, async (req, res) => {
     try {
-        await res.base.deleteOne();
-        res.json({ message: 'Base Destroyed' })
+      await res.base.deleteOne();
+      res.json({ message: 'Deleted Base' })
     } catch (erro) {
-        res.status(500).json({ message: erro.message })
+      res.status(500).json({ message: erro.message })
     }
-})
+  })
 
 async function getBase (req, res, next) {
     let base;
