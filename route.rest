@@ -2,4 +2,33 @@ GET http://0.0.0.0:3000/base
 
 ###
 
-GET http://0.0.0.0:3000/base/12
+GET http://0.0.0.0:3000/base?titulo=%22Centro%20de%20fofoca%20universal%22
+
+###
+GET http://0.0.0.0:3000/base/6403ee78dd91010cac97fbcb
+
+###
+POST http://0.0.0.0:3000/base
+Content-Type: application/json
+
+{
+    "titulo": "Centro de fofoca universa",
+    "nomeFachada": "Wikilab",
+    "cidade": "Nova York",
+    "tecnologias": ["laboratório de nanotecnologia","academia de parkour"]
+}
+
+###
+
+PUT http://0.0.0.0:3000/base/6403ee78dd91010cac97fbcb
+Content-Type: application/json
+
+{
+    "titulo": "Centro de fofoca universal",
+    "nomeFachada": "Wikilab",
+    "cidade": "Nova York",
+    "tecnologias": ["laboratório de nanotecnologia"]
+}
+
+###
+DELETE http://0.0.0.0:3000/base/6403d8c3edd9e096662d98fb
