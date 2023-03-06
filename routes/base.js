@@ -5,26 +5,18 @@ const Base = require('../models/base');
 
 //Listar 
 router.get('/', async (req, res) => {
-    const naoExisteQuery = Object.entries(req.query).length;
-    if (naoExisteQuery) {
-        try {
-            const bases = await Base.find({}, {titulo: 0});
-            res.json(bases); 
-        } catch (erro) {
-            res.status(500).json({ message: erro.message });
+    let base;
+    try {
+        base = await Base.find(req.query, {titulo: 0});
+        
+        if(base == null) {
+            return res.status(404).json({ message: 'Cannot find base' });
         }
-    } else {
-        let base;
-        try {
-            base = await Base.find(req.query, {titulo:0});
-            if(base.length === 0) {
-                return res.status(404).json({ message: 'Cannot find base' });
-            }
-        } catch (erro) {
-            return res.status(500).json({ message: erro.message });
-        }
-        return res.json(base);
+        
+    } catch (erro) {
+        res.status(500).json({ message: erro.message });
     }
+    return res.json(base); 
 })
 
 //Listar por ID

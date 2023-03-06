@@ -1,7 +1,7 @@
 GET http://0.0.0.0:3000/base
 
 ###
-GET http://0.0.0.0:3000/base?cidade=Rio%20de%20Janeiro
+GET http://0.0.0.0:3000/base/?cidade=Rio%20de%20Janeiro
 
 ###
 GET http://0.0.0.0:3000/base/6404b132c3f0f9632abd9648
@@ -11,23 +11,30 @@ POST http://0.0.0.0:3000/base
 Content-Type: application/json
 
 {
-    "titulo": "Fábrica de SMILE",
-    "nomeFachada": "Coliseu Corroída",
-    "cidade": "Rio de Janeiro",
+    "titulo": "Castelo do Drácula",
+    "nomeFachada": "Laboratório de Análises Clínicas",
+    "cidade": "Nova York",
     "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 }
 
+# {
+#     "titulo": "Castelo do Drácula",
+#     "nomeFachada": "Castelo do Drácula",
+#     "cidade": "Bucareste",
+#     "tecnologias": ["sarcófago hermético","laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
+# }
+
 ###
 
-PUT http://0.0.0.0:3000/base/6404b132c3f0f9632abd9648
+PUT http://0.0.0.0:3000/base/6405e665a1f6fd15de914dcc
 Content-Type: application/json
 
 {
-    "titulo": "Fábrica de SMILE",
-    "nomeFachada": "Coliseu Corrida",
-    "cidade": "Tóquio",
+    "titulo": "Castelo do Drácula",
+    "nomeFachada": "Laboratório de Análises Hematológicas",
+    "cidade": "Nova York",
     "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 }
 
 ###
-DELETE http://0.0.0.0:3000/base/6404930c68fa555d4cd693db
+DELETE http://0.0.0.0:3000/base/6405f469f618cfb4ff1a920f
