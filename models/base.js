@@ -24,7 +24,7 @@ const baseSchema = new mongoose.Schema ({
 	},
 	
 	tecnologias : [{
-		type: [String],
+		type: String,
 		enum: ["laboratório de nanotecnologia", "jardim de ervas venenosas", "estande de tiro", "academia de parkour"]
 	}]
 })
