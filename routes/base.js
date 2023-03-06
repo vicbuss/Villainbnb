@@ -2,22 +2,38 @@ const express = require('express');
 const router = express.Router();
 const Base = require('../models/base');
 
-//Listar todas - filtrar titulo - Params: titulo, nome, cidade, tecnologias 
+
+//Listar 
 router.get('/', async (req, res) => {
-    try {
-        const bases = await Base.find({}, {titulo: 0});
-        res.json(bases); 
-    } catch (erro) {
-        res.status(500).json({ message: erro.message });
+    const naoExisteQuery = Object.entries(req.query).length;
+    if (naoExisteQuery) {
+        try {
+            const bases = await Base.find({}, {titulo: 0});
+            res.json(bases); 
+        } catch (erro) {
+            res.status(500).json({ message: erro.message });
+        }
+    } else {
+        let base;
+        try {
+            base = await Base.find(req.query, {titulo:0});
+            if(base.length === 0) {
+                return res.status(404).json({ message: 'Cannot find base' });
+            }
+        } catch (erro) {
+            return res.status(500).json({ message: erro.message });
+        }
+        return res.json(base);
     }
 })
-//Listar uma ID - filtrar titulo - Params: titulo, nome, cidade, tecnologias
+
+//Listar por ID
 router.get('/:id', async (req, res) => {
     let base;
     try{
         base = await Base.findById(req.params.id, {titulo: 0});
         if(base == null) {
-            return res.status(404).json({ message: 'Cannot find base' })
+            return res.status(404).json({ message: 'Cannot find base' });
         }
         
     } catch (erro) {
@@ -25,6 +41,7 @@ router.get('/:id', async (req, res) => {
     }
     return res.json(base);
 })
+
 
 //Cadastrar nova base
 router.post('/', async (req, res) => {
