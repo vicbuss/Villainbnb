@@ -1,7 +1,7 @@
 GET http://0.0.0.0:3000/base
 
 ###
-GET http://0.0.0.0:3000/base/?cidade=
+GET http://0.0.0.0:3000/base/?cidade=Rio%20de%20Janeiro
 
 ###
 GET http://0.0.0.0:3000/base/6404b132c3f0f9632abd9648
@@ -19,10 +19,17 @@ Content-Type: application/json
 
 {
     "titulo": "Castelo do Drácula",
-    "nomeFachada": "Castelo do Drácula",
-    "cidade": "Bucareste",
-    "tecnologias": ["sarcófago hermético","laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
+    "nomeFachada": "Laboratório de Análises Clínicas",
+    "cidade": "Nova York",
+    "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 }
+
+# {
+#     "titulo": "Castelo do Drácula",
+#     "nomeFachada": "Castelo do Drácula",
+#     "cidade": "Bucareste",
+#     "tecnologias": ["sarcófago hermético","laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
+# }
 
 ###
 
@@ -37,4 +44,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://0.0.0.0:3000/base/6405e665a1f6fd15de914dcc
+DELETE http://0.0.0.0:3000/base/6405f469f618cfb4ff1a920f
