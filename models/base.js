@@ -14,18 +14,24 @@ const baseSchema = new mongoose.Schema ({
 	nomeFachada : {
 		type: String,
 		required: true,
-		validate: diferenteDeTitulo
+		validate: [diferenteDeTitulo, '{VALUE} deve ser diferente do título']
 	},
 	
 	cidade : {
 		type: String,
 		required: true,
-		enum: ["Nova York", "Rio de Janeiro", "Tóquio"]
+		enum: {
+		values: ["Nova York", "Rio de Janeiro", "Tóquio"],
+		message: '{VALUE} não é uma cidade coberta pela associação.'	
+		}
 	},
 	
 	tecnologias : [{
 		type: String,
-		enum: ["laboratório de nanotecnologia", "jardim de ervas venenosas", "estande de tiro", "academia de parkour"]
+		enum: {
+			values: ["laboratório de nanotecnologia", "jardim de ervas venenosas", "estande de tiro", "academia de parkour"],
+			message: '{VALUE} não é uma tecnologia disponível para instação'  
+		} 
 	}]
 })
 

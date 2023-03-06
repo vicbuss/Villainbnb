@@ -17,19 +17,13 @@ Content-Type: application/json
 #     "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 # }
 
+
 {
-    "titulo": "Castelo do Drácula",
-    "nomeFachada": "Laboratório de Análises Clínicas",
+    "titulo": "Centro de fofoca universal",
+    "nomeFachada": "Castelo do Drácula",
     "cidade": "Nova York",
     "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 }
-
-# {
-#     "titulo": "Castelo do Drácula",
-#     "nomeFachada": "Castelo do Drácula",
-#     "cidade": "Bucareste",
-#     "tecnologias": ["sarcófago hermético","laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
-# }
 
 ###
 
