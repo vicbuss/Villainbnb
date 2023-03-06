@@ -12,7 +12,7 @@ db.once('open', () => console.log('Connected to Database'));
 
 app.use(express.json());
 
-const baseRouter = require('../routes/base');
+const baseRouter = require('./routes/base');
 app.use('/base', baseRouter);
 
 app.listen(3000, () => console.log('Server Started'));
