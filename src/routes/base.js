@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Base = require('../models/base');
+const axios = require('axios');
 
 
 //Listar 
@@ -75,5 +76,7 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json({message: erro.message});
     }
 })
+
+
 
 module.exports = router;

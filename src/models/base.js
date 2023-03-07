@@ -32,7 +32,11 @@ const baseSchema = new mongoose.Schema ({
 			values: ["laboratório de nanotecnologia", "jardim de ervas venenosas", "estande de tiro", "academia de parkour"],
 			message: '{VALUE} não é uma tecnologia disponível para instação'  
 		} 
-	}]
+	}],
+
+	mediaTemperatura : {
+		type: Number
+	}
 })
 
 module.exports = mongoose.model('Base', baseSchema);
