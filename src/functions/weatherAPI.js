@@ -3,7 +3,7 @@ const add = require('date-fns/add');
 const format = require('date-fns/format');
 require('dotenv').config();
 
-async function getWeatherHistory (cidade) {
+async function mediaDaSemana (cidade) {
     const key = process.env.WEATHER_API;
     let mediasDeTemperatura = [];
     for(let i = -1; i > -8; i--) {
@@ -19,10 +19,9 @@ async function getWeatherHistory (cidade) {
         }
     }
     let mediaDaSemana = mediasDeTemperatura.reduce((a , b) => a + b, 0) / mediasDeTemperatura.length;
-    console.log(mediaDaSemana);
+    return mediaDaSemana;
 }
 
-const cidade = 'New York';
+module.exports = {mediaDaSemana};
 
-getWeatherHistory(cidade);
 

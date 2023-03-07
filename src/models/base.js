@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const weatherAPI = require('../functions/weatherAPI');
 
 function diferenteDeTitulo(valor) {
 	return valor !== this.titulo;
@@ -34,9 +35,18 @@ const baseSchema = new mongoose.Schema ({
 		} 
 	}],
 
-	mediaTemperatura : {
+	mediaDaSemana : {
 		type: Number
 	}
 })
+
+baseSchema.pre('save', async function preSaveFunction() {
+	try {
+		const mediaDaSemana = await weatherAPI.mediaDaSemana(this.cidade);
+		this.mediaDaSemana = mediaDaSemana; 
+	} catch (erro) {
+		
+	}
+}) 
 
 module.exports = mongoose.model('Base', baseSchema);
