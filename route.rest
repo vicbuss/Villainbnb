@@ -1,22 +1,22 @@
 GET http://0.0.0.0:3000/base
 
 ###
-GET http://0.0.0.0:3000/base/?cidade=Rio%20de%20Janeiro
+GET http://0.0.0.0:3000/base/?cidade=T%C3%B3quio
 
 ###
-GET http://0.0.0.0:3000/base/6404b132c3f0f9632abd9648
-###
+GET http://0.0.0.0:3000/base/6407da1a86276e055cf81a80
 
+###
 POST http://0.0.0.0:3000/base
 Content-Type: application/json
 
 {
-    "titulo": "Castelo do Drácula",
-    "nomeFachada": "Laboratório de Análises Clínicas",
-    "cidade": "Nova York",
+
+    "titulo": "Fábrica de SMILE",
+    "nomeFachada": "Coliseu Corrida",
+    "cidade": "Tóquio",
     "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 }
-
 
 # {
 #     "titulo": "Centro de fofoca universal",
@@ -38,4 +38,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://0.0.0.0:3000/base/640658eca13700a202922ab0
+DELETE http://0.0.0.0:3000/base/6404b132c3f0f9632abd9648
