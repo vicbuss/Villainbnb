@@ -18,7 +18,7 @@ function cidadePortuguesIngles (cidadeEmPortugues) {
             ingles: 'Tokyo'
         }
     ]
-    let cidadeIngles; 
+    let cidadeEmIngles; 
 
     for(element of cidadePortuguesIngles) {
         if(cidadeEmPortugues === element.portugues) {

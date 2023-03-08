@@ -55,6 +55,9 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         await Base.findByIdAndUpdate(req.params.id, req.body);
+        if(base == null) {
+            return res.status(404).json({ message: 'Cannot find base' });
+        }
         const baseAtualizada = await Base.findById(req.params.id);
         res.json({baseAtualizada});
     } catch (erro) {
