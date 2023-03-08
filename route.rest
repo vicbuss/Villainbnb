@@ -19,8 +19,8 @@ Content-Type: application/json
 }
 
 # {
-#     "titulo": "Centro de fofoca universal",
-#     "nomeFachada": "Castelo do Drácula",
+#     "titulo": "Castelo do Drácula",
+#     "nomeFachada": "Centro de Análises Clínicas",
 #     "cidade": "Nova York",
 #     "tecnologias": ["laboratório de nanotecnologia","estande de tiro", "jardim de ervas venenosas"]
 # }
