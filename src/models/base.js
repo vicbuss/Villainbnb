@@ -45,7 +45,7 @@ baseSchema.pre('save', async function preSaveFunction() {
 		const mediaDaSemana = await weatherAPI.mediaDaSemana(this.cidade);
 		this.mediaDaSemana = mediaDaSemana; 
 	} catch (erro) {
-		
+		throw new Error(erro.message);
 	}
 }) 
 

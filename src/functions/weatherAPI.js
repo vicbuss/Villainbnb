@@ -42,7 +42,7 @@ async function mediaDaSemana (cidade) {
             const mediaDoDia = response.data.forecast.forecastday[0].day.avgtemp_c;
             mediasDeTemperatura.push(mediaDoDia);
         } catch (erro) {
-            console.log(erro.message);
+            throw new Error(erro.message);
         }
     }
     let mediaDaSemana = mediasDeTemperatura.reduce((a , b) => a + b, 0) / mediasDeTemperatura.length;
