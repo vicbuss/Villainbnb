@@ -53,8 +53,9 @@ router.post('/', async (req, res) => {
 })
 //Atualizar cadastro
 router.put('/:id', async (req, res) => {
+    let base;
     try {
-        await Base.findByIdAndUpdate(req.params.id, req.body);
+        base = await Base.findByIdAndUpdate(req.params.id, req.body);
         if(base == null) {
             return res.status(404).json({ message: 'Cannot find base' });
         }
