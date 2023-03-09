@@ -8,7 +8,7 @@ const axios = require('axios');
 router.get('/', async (req, res) => {
     let base;
     try {
-        base = await Base.find(req.query, {titulo: 0});
+        base = await Base.find(req.query, {nomeFachada: 0});
         
         if(base == null) {
             return res.status(404).json({ message: 'Cannot find base' });
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     let base;
     try{
-        base = await Base.findById(req.params.id, {titulo: 0});
+        base = await Base.findById(req.params.id, {nomeFachada: 0});
         if(base == null) {
             return res.status(404).json({ message: 'Cannot find base' });
         }
